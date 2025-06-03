@@ -1,4 +1,4 @@
-# Blazor Ecommerce
+# Geek Verse E-commerce
 
 This project is a Ecommerce application built for selling E-books, Blue-Ray, Stream, VHS and videgames online, allowing users to purchase items using credit card, PayPal, or direct bank transfer.
 
