@@ -1,0 +1,100 @@
+/.vs
+BlazorEcommerce_V2.sln
+
+# Ignore build results
+bin/
+obj/
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# Visual Studio specific
+.vscode/
+.vscode/*
+.idea/
+.idea/*
+*.code-workspace
+*.vs/
+.vs/
+*.sln.docstates
+
+# ASP.NET Core specific
+appsettings*.json
+secrets.json
+.env
+.env.*.local
+.env.local
+.env.*.development
+.env.development
+
+# Rider specific
+.idea/
+.idea/*
+*.sln.iml
+
+# Mac specific
+.DS_Store
+
+# Resharper
+_ReSharper*/
+*.DotSettings.user
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Npm packages
+node_modules/
+
+# Packages directory can be ignored if not building nuget packages
+**/packages/
+# Uncomment if necessary however generally it will be regenerated during build
+#*.nupkg
+#*.snupkg
+
+# Ensure that you don't ignore .net core tools
+!**/src/.dotnet_tool.json
+
+# Log files
+*.log
+logs/
+
+# Add your custom rules here
+# Example: ignore a file you don't want to track
+# somefile.txt
+
+# Uncomment if necessary
+#*.db
+#*.bak
+#*.mdf
+#*.ldf
+
+# Rider directories
+.idea/
+.idea/*
+
+# JetBrains specific
+.idea/
+.idea/*
+.idea/.idea/
+.idea/*.iml
+
+# Publish outputs
+publish/
+.publish/
+
+# Other exclusions
+*.swp

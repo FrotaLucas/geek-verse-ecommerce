@@ -1,0 +1,73 @@
+﻿@inject ICategoryService CategoryService
+@implements IDisposable
+
+<div class="title-application navbar navbar-dark">
+    <div class="container-fluid">
+        <a class="brand" href="">Start buying</a>
+        <button title="navigation_menu" class="navbar-toggler" @onclick="ToggleMenuMobile">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+</div>
+
+@*Para Desk: Quando uma category eh clicada, o elemento nav permanece = ) Isso acontece pq ao clicar em category
+ ai sendo retitada a propriedade display:block, o resultado eh o mesmo dado que 
+pq ocaso Desk ter display:block ou nao ter tanto faz*@
+<div class="@NavMenuCssClass @NavMenuCssMobile" @onclick="ToggleNavMenu"> @* Esse ToggleNavMenu funciona apenas para Mobile*@
+    <nav class="menu-layout">
+        <div class="item">
+            <a href="">
+                <span class="oi oi-home" aria-hidden="true"></span> Home
+            </a>
+        </div>
+        @if (CategoryService.Categories != null)
+        {
+
+            @foreach (var category in CategoryService.Categories)
+            {
+                <div class="item">
+                    <a href="@category.Url">
+                        @category.Name
+                    </a>
+                </div>
+
+            }
+        }
+
+    </nav>
+</div>
+
+@code {
+    private bool collapseNavMenu = true;
+
+    private bool collapseMenuMobile = true;
+
+    private string? NavMenuCssClass => collapseNavMenu ? "collapse-category" : null;
+
+    private string? NavMenuCssMobile => collapseMenuMobile ? "collapse-mobile-category" : "expand-mobile-category";
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+        collapseMenuMobile = true;
+    }
+
+    private void ToggleMenuMobile()
+    {
+        collapseMenuMobile = !collapseMenuMobile;
+    }
+
+    //pq esse metodo precisa ser overrride protected ?
+    //eese metodo que faz aparecer em dev tool network a api Category. Pq fica registrado com esse nome ????
+    protected override async Task OnInitializedAsync()
+    {
+        await CategoryService.GetCategories();
+        CategoryService.OnChange += StateHasChanged;
+    }
+
+    public void Dispose()
+    {
+        CategoryService.OnChange -= StateHasChanged;
+    }
+
+}

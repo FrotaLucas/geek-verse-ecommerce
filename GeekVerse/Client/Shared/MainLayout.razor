@@ -1,0 +1,18 @@
+﻿@inherits LayoutComponentBase
+
+@* Esse componente MainLayout inteiro nao serve para nada!! Acho que ele foi substituido pelo ShopLayout. Testar *@
+<div class="page">
+    <div class="sidebar">
+         <NavMenu />
+    </div>
+
+    <main>
+        <div class="top-row px-4">
+            <Search />
+        </div>
+
+        <article class="content px-4">
+            @Body
+        </article>
+    </main>
+</div>

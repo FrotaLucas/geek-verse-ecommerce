@@ -1,0 +1,82 @@
+﻿@page "/login"
+@using Microsoft.AspNetCore.WebUtilities;
+@using Microsoft.AspNetCore.Components.Forms;
+@using Microsoft.AspNetCore.Components;
+@inject IAuthService AuthService
+@inject ILocalStorageService LocalStorage
+@inject NavigationManager NavigationManager
+@inject AuthenticationStateProvider AuthenticationStateProvider;
+@inject ICartService CartService
+
+<PageTitle>Login</PageTitle>
+
+<div class="login-container">
+
+
+    <h3>Login</h3>
+
+
+    <EditForm Model="user" OnValidSubmit="HandleLogin">
+        <DataAnnotationsValidator />
+        <div class="mb-3">
+            <label for="email">Email</label>
+            @* <InputText id="email" @bind-Value="user.Email" class="form-control"/> *@
+            <input id="email" @bind="user.Email" class="input-style"/>
+            <ValidationMessage For="@(() => user.Email)" />
+        </div>
+        <div class="mb-3">
+            <label for="password">Password</label>
+            @* <InputText id="password" @bind-Value="user.Password" class="form-control" type="password" /> *@
+            <input id="password" @bind="user.Password" class="input-style" type="password" />
+            <ValidationMessage For="@(() => user.Password)" />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Login</button>
+
+        <div class="text-danger">
+            <span>
+                @errorMessage
+            </span>
+        </div>
+    </EditForm>
+</div>
+
+
+@code {
+    UserLogin user = new UserLogin();
+    string errorMessage = string.Empty;
+
+    private string returnUrl = string.Empty;
+
+    protected override void OnInitialized()
+    {
+        var uri = NavigationManager.ToAbsoluteUri(NavigationManager.Uri);
+
+        if (QueryHelpers.ParseQuery(uri.Query).TryGetValue("returnUrl", out var url))
+        {
+            returnUrl = url;
+        }
+    }
+
+    private async Task HandleLogin()
+    {
+        var result = await AuthService.Login(user);
+
+        if (result.Success)
+        {
+            await LocalStorage.SetItemAsStringAsync("authToken", result.Data);
+            //pq AuthenticationStateProvider e nao a minha classe CustomAuthStateProvider?resolvido
+            await AuthenticationStateProvider.GetAuthenticationStateAsync();
+            //ao fazer login, o que ta salvo em cart deve ser apagado,
+            //Por isso o true aqui !!
+            //Depois GetCartItemsCount() se encarrega de atualizar cartItemsCount do LocalStorage
+            await CartService.StoreCartItems(true);
+            await CartService.GetCartItemsCount();
+            NavigationManager.NavigateTo(returnUrl);
+        }
+        else
+        {
+            errorMessage = result.Message;
+        }
+    }
+}

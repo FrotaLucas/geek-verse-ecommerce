@@ -1,0 +1,87 @@
+﻿@page "/admin/products"
+@inject IProductService ProductService
+@attribute [Authorize(Roles = "Admin")]
+@inject NavigationManager NavigationManager
+
+
+<div class="product-container">
+    <h3>Products</h3>
+
+
+    @if (ProductService.AdminProducts == null)
+    {
+        <span>Loading Products ...</span>
+    }
+
+    else
+    {
+        //tbm funciona pq ????
+        // <button @onclick="() => CreateNewProduct()">
+
+        <button class="btn btn-primary add-product-admin invisible-mobile" @onclick="CreateNewProduct">
+            <i class="oi oi-plus" /> Add new Product
+        </button>
+
+        <table class="table" style="width:90%; align-items:center">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Product</th>
+                    <th class="invisible-mobile">Variant</th>
+                    <th>Price</th>
+                    <th class="invisible-mobile">Visible</th>
+                    <th class="invisible-mobile"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <Virtualize Items="ProductService.AdminProducts" Context="product">
+                    <tr>
+                        <td><img src="@product.ImageUrl" /></td>
+                        <td> @product.Title</td>
+                        @* nao da pra juntar os dois foreach no mesmo bloco ? *@
+                        <td class="invisible-mobile">
+                            @foreach (var variant in product.Variants)
+                            {
+                                <span>@variant.ProductType.Name</span>
+                                <br />
+                            }
+                        </td>
+                        <td>
+                            @foreach (var variant in product.Variants)
+                            {
+                                <span>@variant.Price</span>
+                                <br />
+                            }
+                        </td>
+                        <td class="invisible-mobile">@(product.Visible ? "✔️" : "")</td>
+                        <td class="invisible-mobile">
+                            <button class="btn btn-primary" @onclick="( () => EditProduct(product.Id) )">
+                                <i class="oi oi-pencil"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </Virtualize>
+            </tbody>
+        </table>
+    }
+
+</div>
+
+@code {
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        await ProductService.GetAdminProducts();
+    }
+
+    void EditProduct(int productId)
+    {
+        NavigationManager.NavigateTo($"admin/product/{productId}");
+    }
+
+    void CreateNewProduct()
+    {
+        NavigationManager.NavigateTo("admin/product");
+    }
+}

@@ -1,0 +1,14 @@
+﻿
+/*pq quando eu habilito margin-left no ShopLayout.razor.css, essa propriedade sobrescreve aqui em cima  
+do margin-left da tag a ????? */
+
+/* a {
+    margin-left: 0px;
+    color: red;
+}
+*/
+
+.dropdown-item:hover {
+    background-color: white;
+    text-decoration: underline;
+}
