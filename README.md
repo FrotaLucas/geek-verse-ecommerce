@@ -2,6 +2,14 @@
 
 This project is a Ecommerce application built for selling E-books, Blue-Ray, Stream, VHS and videgames online, allowing users to purchase items using credit card, PayPal, or direct bank transfer.
 
+
+---
+
+**Home Page**
+
+
+![image](https://github.com/user-attachments/assets/c969b2af-1758-423c-a988-1aacfc7d5315)
+
 ---
 
 ## Technologies Used
