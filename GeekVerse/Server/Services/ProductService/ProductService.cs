@@ -233,6 +233,7 @@ namespace GeekVerse.Server.Services.ProductService
             dbProduct.ImageUrl = product.ImageUrl;
             dbProduct.Visible = product.Visible;
             dbProduct.Deleted = product.Deleted;
+            dbProduct.Featured = product.Featured;
 
             foreach( var variant in product.Variants )
             {
@@ -243,6 +244,8 @@ namespace GeekVerse.Server.Services.ProductService
                 if ( dbVariant == null )
                 {
                     dbVariant.ProductType = null;
+                    //dbVariant.ProductType = 
+                    // NAO DEVERIA ADICIONAR VARIANT  EXISTE> DEVERIA ATUALIZAR!!
                     _context.ProductVariant.Add(variant);
                 }
 
