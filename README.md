@@ -8,7 +8,8 @@ This project is a Ecommerce application built for selling E-books, Blue-Ray, Str
 # Home Page
 
 
-![image](https://github.com/user-attachments/assets/683f2180-38e8-45d5-bca7-df0af4a5089b)
+![image](https://github.com/user-attachments/assets/b6b20599-e4ed-4c02-9899-482eeac8d2b8)
+
 
 
 ---
