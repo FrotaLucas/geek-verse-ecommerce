@@ -1,4 +1,9 @@
-﻿.container {
+﻿
+h2{
+    margin-top: 2rem;
+}
+
+.container {
     display: flex;
     flex-direction: row;
     overflow-x: auto;
