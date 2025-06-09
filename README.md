@@ -1,8 +1,8 @@
 # Geek Verse E-commerce
 
-**Geek Verse** was born from the idea of bringing together all the classics of geek culture in one place. The goal is to combine my passion for technology with the curiosity and richness of the geek universe — delivering a complete shopping experience for fans of movies, games, books, and streaming.
+**Geek Verse** was born from the idea of bringing together all the classics of geek culture in one place. The goal is to combine my passion for technology with the curiosity and richness of the geek universe, delivering a complete shopping experience for fans of movies, games, books, and streaming.
 
-This project is a **Fullstack Web Development application in C#** designed to simulate a real e-commerce platform, with robust features for both **customers** and **administrators**.
+This project is a **Fullstack Web Development application in C#** designed to simulate a real e-commerce platform, with robust features for both **customers** and **administrators**. Geek Verse is more than just a technical project: it's the fusion of software development and pop culture. It’s a store built by a fan, for fans — focused on scalability, solid architecture, and user experience.
 
 
 ## Project Goal 
