@@ -52,7 +52,14 @@ In addition to all customer functionalities, the admin has access to:
 
 ![image](https://github.com/user-attachments/assets/c6123e97-dc19-4726-bf47-61f31eaacd45)
 
+> *Note: While both admins and customers see the same homepage UI, menu items are dynamically rendered according to user permissions.* <
+
 # User Purchase Journey
+
+### Select a category of product
+
+![image](https://github.com/user-attachments/assets/7074e7f5-eb7b-41bb-bf0b-f3ff8227dccb)
+
 
 ### Add Product to Cart
 
