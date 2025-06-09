@@ -1,7 +1,6 @@
 ﻿
 h3 {
- /*   margin-left: 6.5rem;
-    margin-bottom: 4rem;*/
+    margin-bottom: 2rem;
 }
 
 .order-container {
@@ -9,25 +8,18 @@ h3 {
     margin-top: 2rem;
 }
 
-﻿.order-bx {
-    display: flex;
-    padding: 6px;
-    width: 30px;
-    margin: 100px;
-}
-
-#tt {
-    max-width: 60%;
+#order-bx {
+    max-width: 40%;
 }
 
 .image-wrapper {
-    width: 150px;
-    text-align: center;
+    /*width: 150px;*/
+    /*text-align: center;*/
 }
 
 .image {
-    max-height: 350px;
-    max-width: 350px;
+    max-height: 200px;
+    max-width: 200px;
     padding: 6px;
 }
 
