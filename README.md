@@ -1,14 +1,83 @@
 # Geek Verse E-commerce
 
-This project is a Ecommerce application built for selling E-books, Blue-Ray, Stream, VHS and videgames online, allowing users to purchase items using credit card, PayPal, or direct bank transfer.
+**Geek Verse** was born from the idea of bringing together all the classics of geek culture in one place. The goal is to combine my passion for technology with the curiosity and richness of the geek universe, delivering a complete shopping experience for fans of movies, games, books, and streaming.
+
+This project is a **Fullstack Web Development application in C#** designed to simulate a real e-commerce platform, with robust features for both **customers** and **administrators**. Geek Verse is more than just a technical project: it's the fusion of software development and pop culture. It’s a store built by a fan, for fans — focused on scalability, solid architecture, and user experience.
+
+
+## Project Goal 
+### Create a platform that allows:
+
+- A complete end-user experience, from account creation to checkout.
+
+- Full internal management through an admin panel, including control over products, categories, and variations.
+
+### Customer Features
+
+- Create and edit user profile
+
+- Add or remove products from the cart
+
+- View purchase history
+
+- Change password and personal information
+
+- Complete purchases using:
+
+    - PayPal
+
+    - Credit Card
+
+    - Direct Bank Transfer
+
+
+### Admin Features
+Admins are registered directly in the database and granted elevated permissions.
+In addition to all customer functionalities, the admin has access to:
+
+- Dashboard with the complete list of available products
+
+- Management of main categories (Movies, Video Games, Books, Streaming)
+
+- Management of subcategories (e.g., E-book, Audiobook, VHS, Blu-ray, PC, PlayStation)
+
+- Add, update, or delete products and categories
+
+- Update product catalog daily
 
 
 ---
 
 # Home Page
 
+![image](https://github.com/user-attachments/assets/c6123e97-dc19-4726-bf47-61f31eaacd45)
 
-![image](https://github.com/user-attachments/assets/b6b20599-e4ed-4c02-9899-482eeac8d2b8)
+> *Note: While both admins and customers see the same homepage UI, menu items are dynamically rendered according to user permissions.* <
+
+# User Purchase Journey
+
+### Select a category of product
+
+![image](https://github.com/user-attachments/assets/7074e7f5-eb7b-41bb-bf0b-f3ff8227dccb)
+
+
+### Add Product to Cart
+
+![image](https://github.com/user-attachments/assets/56b3ffd9-798e-45a8-bc7f-b5b39f6f9ecc)
+
+### Go to Cart and Proceed to Checkout
+
+![image](https://github.com/user-attachments/assets/e8dac39a-e996-40a9-b26f-d919d7874249)
+
+
+### Complete Payment (Stripe Integration)
+
+![image](https://github.com/user-attachments/assets/dd3e17d4-6850-4a47-bb0f-451fb52c9f94)
+
+
+### View Your Orders
+
+![image](https://github.com/user-attachments/assets/431d5f94-66c8-4b3a-a96c-53ad689a3074)
 
 
 
