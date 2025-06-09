@@ -4,6 +4,11 @@
     margin-left: 1rem;
 }
 
+h3 {
+    text-decoration: underline;
+    text-underline-offset: 6px;
+}
+
 .media-img {
     max-height: 500px;
     max-width: 500px;
