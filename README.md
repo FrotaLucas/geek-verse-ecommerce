@@ -1,6 +1,49 @@
 # Geek Verse E-commerce
 
-This project is a Ecommerce application built for selling E-books, Blue-Ray, Stream, VHS and videgames online, allowing users to purchase items using credit card, PayPal, or direct bank transfer.
+**Geek Verse** was born from the idea of bringing together all the classics of geek culture in one place. The goal is to combine my passion for technology with the curiosity and richness of the geek universe — delivering a complete shopping experience for fans of movies, games, books, and streaming.
+
+This project is a **Fullstack Web Development application in C#** designed to simulate a real e-commerce platform, with robust features for both **customers** and **administrators**.
+
+
+## Project Goal 
+### Create a platform that allows:
+
+- A complete end-user experience, from account creation to checkout.
+
+- Full internal management through an admin panel, including control over products, categories, and variations.
+
+### Customer Features
+
+- Create and edit user profile
+
+- Add or remove products from the cart
+
+- View purchase history
+
+- Change password and personal information
+
+- Complete purchases using:
+
+-- PayPal
+
+-- Credit Card
+
+-- Direct Bank Transfer
+
+
+### Admin Features
+Admins are registered directly in the database and granted elevated permissions.
+In addition to all customer functionalities, the admin has access to:
+
+- Dashboard with the complete list of available products
+
+- Management of main categories (Movies, Video Games, Books, Streaming)
+
+- Management of subcategories (e.g., E-book, Audiobook, VHS, Blu-ray, PC, PlayStation)
+
+- Add, update, or delete products and categories
+
+- Update product catalog daily
 
 
 ---
