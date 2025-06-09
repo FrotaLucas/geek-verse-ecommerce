@@ -9,6 +9,8 @@
 
 h3 {
     margin: 2rem 1rem 1rem 1rem;
+    text-decoration: underline;
+    text-underline-offset: 6px;
 }
 
 .producttype-container {
