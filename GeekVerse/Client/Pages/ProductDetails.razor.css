@@ -13,10 +13,11 @@ h3 {
     max-height: 500px;
     max-width: 500px;
     border-radius: 6px;
-    margin: 0 10px 10px 10px;
+    margin: 0 10px 10px 0;
 }
 
 .media-img-wrapper {
+    margin-top: 5px;
     max-height: 500px;
     max-width: 500px;
     text-align: center;
