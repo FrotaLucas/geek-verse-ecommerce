@@ -24,11 +24,11 @@ This project is a **Fullstack Web Development application in C#** designed to si
 
 - Complete purchases using:
 
--- PayPal
+    - PayPal
 
--- Credit Card
+    - Credit Card
 
--- Direct Bank Transfer
+    - Direct Bank Transfer
 
 
 ### Admin Features
