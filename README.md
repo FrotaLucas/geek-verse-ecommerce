@@ -52,6 +52,26 @@ In addition to all customer functionalities, the admin has access to:
 
 ![image](https://github.com/user-attachments/assets/c6123e97-dc19-4726-bf47-61f31eaacd45)
 
+# User Purchase Journey
+
+### Add Product to Cart
+
+![image](https://github.com/user-attachments/assets/56b3ffd9-798e-45a8-bc7f-b5b39f6f9ecc)
+
+### Go to Cart and Proceed to Checkout
+
+![image](https://github.com/user-attachments/assets/e8dac39a-e996-40a9-b26f-d919d7874249)
+
+
+### Complete Payment (Stripe Integration)
+
+![image](https://github.com/user-attachments/assets/dd3e17d4-6850-4a47-bb0f-451fb52c9f94)
+
+
+### View Your Orders
+
+![image](https://github.com/user-attachments/assets/431d5f94-66c8-4b3a-a96c-53ad689a3074)
+
 
 
 ---
