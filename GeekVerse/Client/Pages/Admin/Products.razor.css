@@ -4,6 +4,11 @@
     margin-bottom: 2rem;
 }
 
+h3 {
+    text-decoration: underline;
+    text-underline-offset: 6px;
+}
+
 img {
     max-height: 100px;
     max-width: 100px;
