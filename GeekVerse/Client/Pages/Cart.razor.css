@@ -5,6 +5,11 @@
     margin-bottom: 5rem;
 }
 
+h3 {
+    text-decoration: underline;
+    text-underline-offset: 6px;
+}
+
 .outer-container {
     margin-right: 50%;
 }
