@@ -15,6 +15,7 @@ h3 {
 .outer-container {
     margin-right: 70%;
 }
+
 .inner-container {
     display: flex;
     justify-content: space-between;
@@ -43,7 +44,7 @@ h3 {
     /*padding: 6px;*/
 }
 
-.name{
+.name {
     /*flex-grow: 1;*/
     /*padding: 6px;*/
 }
@@ -79,6 +80,10 @@ h3 {
 
 @media (max-width: 640px)
 {
+    h3 {
+        margin: 1rem 1rem 1rem 2.5rem;
+    }
+
     .inner-container
     {
         width: unset;
@@ -92,5 +97,13 @@ h3 {
         margin-left: 15px;
     }
 
+    .image-wrapper {
+        width: unset;
+        margin-right: 20px;
+    }
+
+    .name {
+        margin-right: 5px;
+    }
   
 }
