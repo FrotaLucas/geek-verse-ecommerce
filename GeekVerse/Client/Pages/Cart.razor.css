@@ -9,24 +9,32 @@ h3 {
     text-decoration: underline;
     text-underline-offset: 6px;
     margin-bottom: 2rem;
+    margin-left: 10px;
 }
 
 .outer-container {
-    margin-right: 50%;
+    margin-right: 70%;
 }
 .inner-container {
     display: flex;
-    gap: 10px;
+    justify-content: space-between;
+    /*gap: 10px;*/
     /*padding: 6px;*/
-    margin-left: 0;
+    /*margin-left: 0;*/
     margin-bottom: 2rem;
     /*border: 1px solid black;*/
     
 }
 
 .image-wrapper{
-    width: 150px;
-    text-align: left;
+    display: flex;
+    justify-content: center;
+    width: 200px;
+    /*margin-right: 10px;*/
+   /* width: 5%;
+    margin: auto;*/
+    /*width: 200px;*/
+    /*text-align: left;*/
 }
 
 .image{
@@ -36,11 +44,12 @@ h3 {
 }
 
 .name{
-    flex-grow: 1;
+    /*flex-grow: 1;*/
     /*padding: 6px;*/
 }
 
 .cart-footer {
+    margin-top: 80px;
     text-align: right;
 }
 
