@@ -71,7 +71,7 @@ In addition to all customer functionalities, the admin has access to:
 ![image](https://github.com/user-attachments/assets/fe621ea3-9669-4e1d-a554-ee3b5e005be8)
 
 
-### Complete Payment (Stripe Integration)
+### Complete Payment (Stripe Api Integration)
 
 ![image](https://github.com/user-attachments/assets/dd3e17d4-6850-4a47-bb0f-451fb52c9f94)
 
