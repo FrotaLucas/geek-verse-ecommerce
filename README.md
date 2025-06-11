@@ -92,6 +92,10 @@ In addition to all customer functionalities, the admin has access to:
 ![image](https://github.com/user-attachments/assets/c5579385-c591-4211-90cf-bd9b820eae82)
 
 
+### Management of Variations of Products
+
+![image](https://github.com/user-attachments/assets/30305773-4197-44ff-a4a0-9e4e6fc4190b)
+
 
 ---
 
