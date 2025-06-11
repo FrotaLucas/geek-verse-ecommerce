@@ -24,21 +24,20 @@ h3 {
     /*margin-left: 0;*/
     margin-bottom: 2rem;
     /*border: 1px solid black;*/
-    
 }
 
-.image-wrapper{
+.image-wrapper {
     display: flex;
     justify-content: center;
     width: 200px;
     /*margin-right: 10px;*/
-   /* width: 5%;
+    /* width: 5%;
     margin: auto;*/
     /*width: 200px;*/
     /*text-align: left;*/
 }
 
-.image{
+.image {
     max-width: 200px;
     max-height: 200px;
     /*padding: 6px;*/
@@ -54,11 +53,11 @@ h3 {
     text-align: right;
 }
 
-.btn{
+.btn {
     margin-top: 20px;
 }
 
-.cart-product-price{
+.cart-product-price {
     font-weight: 600;
 }
 
@@ -71,15 +70,14 @@ h3 {
 }
 
     .btn-delete:hover {
-            text-decoration: underline;
+        text-decoration: underline;
     }
 
-.input-quantity{
+.input-quantity {
     width: 70px;
- }
+}
 
-@media (max-width: 640px)
-{
+@media (max-width: 640px) {
     h3 {
         margin: 1rem 1rem 1rem 1rem;
     }
@@ -92,8 +90,7 @@ h3 {
         margin-left: 15px;
     }
 
-    .inner-container
-    {
+    .inner-container {
         width: unset;
     }
 
@@ -106,5 +103,4 @@ h3 {
     .name {
         margin-right: 5px;
     }
-  
 }

@@ -42,14 +42,14 @@ h3 {
 }
 
 
-@media (max-width: 640px){
+@media (max-width: 640px) {
 
     h3 {
         margin: 1rem 1rem 1rem 0;
     }
 
     .outer-container {
-       margin-right: unset;
+        margin-right: unset;
     }
 
     .order-container {
@@ -74,5 +74,4 @@ h3 {
     img {
         /*width: 80%;*/
     }
-
 }
