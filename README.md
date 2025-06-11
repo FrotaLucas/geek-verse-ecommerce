@@ -107,6 +107,7 @@ In addition to all customer functionalities, the admin has access to:
 - **Entity Framework Core**: For database management and object-relational mapping (ORM).
 - **Stripe**: API for processing online payments securely.
 - **Swashbuckle**: For generating Swagger documentation for the API, making it easier to test and understand endpoints
+- **JwtBearer**: Implemented JWT authentication with HMACSHA512 encryption for secure token generation
 
 ---
 
