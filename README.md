@@ -81,7 +81,7 @@ In addition to all customer functionalities, the admin has access to:
 ![image](https://github.com/user-attachments/assets/36238c84-febe-4762-9a51-e205808d8988)
 
 
-# Admin Features
+# Admin Dashboard
 
 ### Management of categories
 
