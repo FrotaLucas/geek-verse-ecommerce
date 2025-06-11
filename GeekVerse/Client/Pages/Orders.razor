@@ -18,21 +18,26 @@ else if( orders.Count <= 0 )
 
 else
 {
-    foreach(var order in orders)
-    {
-        <div id="order-bx">
-            <div class="image-wrapper">
-                <img src="@order.ProductImageUrl" class="image"/>
-            </div>
+    <div class="outer-container">
+            @foreach (var order in orders)
+            {
+                <div id="order-box">
+                    <div class="image-wrapper">
+                        <img src="@order.ProductImageUrl" class="image" />
+                    </div>
 
-            <div class="details">
-                <h4>@order.Product</h4>
-                <span>@order.OrderDate</span> <br />
-                <a href="orders/@order.Id">Show more ...</a>
-            </div>
-            <div class="order-price">€@order.TotalPrice</div>
-        </div>
-    }
+                    <div class="details">
+                        <h4>@order.Product</h4>
+                        <span>@order.OrderDate</span> <br />
+                        <a href="orders/@order.Id">Show more ...</a>
+                    </div>
+                    <div class="order-price">€@order.TotalPrice</div>
+                </div>
+            }
+    </div>
+
+
+    
 }
 </div>
 
