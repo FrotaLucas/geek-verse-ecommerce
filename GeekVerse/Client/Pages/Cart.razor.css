@@ -84,11 +84,6 @@ h3 {
         margin: 1rem 1rem 1rem 2.5rem;
     }
 
-    .inner-container
-    {
-        width: unset;
-    }
-
     .outer-container {
         display: flex;
         flex-direction: column;
@@ -96,6 +91,12 @@ h3 {
         margin-right: 15px;
         margin-left: 15px;
     }
+
+    .inner-container
+    {
+        width: unset;
+    }
+
 
     .image-wrapper {
         width: unset;
