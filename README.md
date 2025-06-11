@@ -63,22 +63,38 @@ In addition to all customer functionalities, the admin has access to:
 
 ### Add Product to Cart
 
-![image](https://github.com/user-attachments/assets/56b3ffd9-798e-45a8-bc7f-b5b39f6f9ecc)
+![image](https://github.com/user-attachments/assets/86f5c679-64a2-403d-ba21-c50f4c412cbd)
+
 
 ### Go to Cart and Proceed to Checkout
 
-![image](https://github.com/user-attachments/assets/e8dac39a-e996-40a9-b26f-d919d7874249)
+![image](https://github.com/user-attachments/assets/fe621ea3-9669-4e1d-a554-ee3b5e005be8)
 
 
-### Complete Payment (Stripe Integration)
+### Complete Payment (Stripe Api Integration)
 
 ![image](https://github.com/user-attachments/assets/dd3e17d4-6850-4a47-bb0f-451fb52c9f94)
 
 
 ### View Your Orders
 
-![image](https://github.com/user-attachments/assets/431d5f94-66c8-4b3a-a96c-53ad689a3074)
+![image](https://github.com/user-attachments/assets/36238c84-febe-4762-9a51-e205808d8988)
 
+
+# Admin Dashboard
+
+### Management of categories
+
+![image](https://github.com/user-attachments/assets/2edc4682-f160-4fcd-84fb-7f295ea77d27)
+
+### Management of Available Products
+
+![image](https://github.com/user-attachments/assets/c5579385-c591-4211-90cf-bd9b820eae82)
+
+
+### Management of Variations of Products
+
+![image](https://github.com/user-attachments/assets/30305773-4197-44ff-a4a0-9e4e6fc4190b)
 
 
 ---
