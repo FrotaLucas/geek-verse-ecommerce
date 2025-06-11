@@ -67,7 +67,7 @@ In addition to all customer functionalities, the admin has access to:
 
 ### Go to Cart and Proceed to Checkout
 
-![image](https://github.com/user-attachments/assets/e8dac39a-e996-40a9-b26f-d919d7874249)
+![image](https://github.com/user-attachments/assets/fe621ea3-9669-4e1d-a554-ee3b5e005be8)
 
 
 ### Complete Payment (Stripe Integration)
