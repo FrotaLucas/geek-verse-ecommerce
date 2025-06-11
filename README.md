@@ -63,7 +63,8 @@ In addition to all customer functionalities, the admin has access to:
 
 ### Add Product to Cart
 
-![image](https://github.com/user-attachments/assets/56b3ffd9-798e-45a8-bc7f-b5b39f6f9ecc)
+![image](https://github.com/user-attachments/assets/9441e513-af0e-49bb-8ebf-298768f866f4)
+
 
 ### Go to Cart and Proceed to Checkout
 
@@ -77,8 +78,7 @@ In addition to all customer functionalities, the admin has access to:
 
 ### View Your Orders
 
-![image](https://github.com/user-attachments/assets/431d5f94-66c8-4b3a-a96c-53ad689a3074)
-
+![image](https://github.com/user-attachments/assets/36238c84-febe-4762-9a51-e205808d8988)
 
 
 ---
