@@ -1,2 +1,0 @@
-quando se cria um nova categoria sem produtos dela ainda criados 
-a pagina mostra dados da ultima categoria carregada.
