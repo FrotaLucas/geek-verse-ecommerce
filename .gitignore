@@ -3,7 +3,7 @@
 **/obj/
 
 
-#extra filter to ignore dll files
+# extra filter to ignore dll files
 **/obj/Debug/net6.0/
 
 # Ignore Visual Studio temporary files and build results
