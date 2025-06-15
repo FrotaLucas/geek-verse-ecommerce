@@ -18,3 +18,7 @@
 build/
 logs/
 *.log
+
+# ignore unused files
+card-data.txt
+
