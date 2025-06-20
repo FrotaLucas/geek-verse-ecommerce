@@ -183,7 +183,8 @@ else
         {
             product.IsNew = false;
             var result = await ProductService.UpdateProduct(product);
-            NavigationManager.NavigateTo($"admin/product/{result.Id}");
+            //NavigationManager.NavigateTo($"admin/product/{result.Id}");
+            NavigationManager.NavigateTo("admin/products");
         }
     }
 
