@@ -289,7 +289,7 @@ namespace GeekVerse.Server.Services.ProductService
                 //Pq precisa atualizar ProductId tbm ? Depois de atualzar Price e Original Price da variante de um produto,
                 //a variante ainda vai continuar se referenciando sobre o mesmo produto!!
                 dbVariant.ProductId = variant.ProductId;
-                dbVariant.OriginalPrice = variant.Price;
+                dbVariant.OriginalPrice = variant.OriginalPrice;
                 dbVariant.Price = variant.Price;
                 dbVariant.Deleted = variant.Deleted;
                 dbVariant.Visible = variant.Visible;
