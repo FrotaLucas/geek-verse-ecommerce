@@ -5,14 +5,14 @@ namespace GeekVerse.Server.Services.ProductService
 {
     public class ProductService : IProductService
     {
-            private readonly DataContext _context;
-            private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly DataContext _context;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-            public ProductService(DataContext context, IHttpContextAccessor httpContextAccessor)
-            {
-                _context = context;
+        public ProductService(DataContext context, IHttpContextAccessor httpContextAccessor)
+        {
+            _context = context;
             _httpContextAccessor = httpContextAccessor;
-            }
+        }
 
         public async Task<ServiceResponse<List<Product>>> GetFeaturedProducts()
         {
@@ -20,7 +20,7 @@ namespace GeekVerse.Server.Services.ProductService
             {
                 Data = await _context.Products
                 .Where(p => p.Featured && p.Visible && !p.Deleted)
-                .Include(p => p.Variants.Where(v => v.Visible && !v.Deleted) ).ToListAsync()
+                .Include(p => p.Variants.Where(v => v.Visible && !v.Deleted)).ToListAsync()
             };
 
             return serviceResponse;
@@ -40,71 +40,71 @@ namespace GeekVerse.Server.Services.ProductService
         }
 
         public async Task<ServiceResponse<Product>> GetProductAsync(int productId)
-            {
-                var response = new ServiceResponse<Product>();
-                Product product = null;
+        {
+            var response = new ServiceResponse<Product>();
+            Product product = null;
 
-            if (_httpContextAccessor.HttpContext.User.IsInRole("Admin")  )
+            if (_httpContextAccessor.HttpContext.User.IsInRole("Admin"))
             {
                 product = await _context.Products.Include(p => p.Variants.Where(v => !v.Deleted))
                     .ThenInclude(v => v.ProductType)
-                    .FirstOrDefaultAsync( p => p.Id == productId && !p.Deleted );
+                    .FirstOrDefaultAsync(p => p.Id == productId && !p.Deleted);
             }
             else
             {
                 //op1
-                     product = await _context.Products
-                    .Include(p => p.Variants.Where(v=> v.Visible && !v.Deleted ))
-                    .ThenInclude(pt => pt.ProductType)
-                    .FirstOrDefaultAsync(p => p.Id == productId && p.Visible && !p.Deleted);
+                product = await _context.Products
+               .Include(p => p.Variants.Where(v => v.Visible && !v.Deleted))
+               .ThenInclude(pt => pt.ProductType)
+               .FirstOrDefaultAsync(p => p.Id == productId && p.Visible && !p.Deleted);
             }
 
             //op2
             //var product = await _context.Products.FirstOrDefaultAsync(p => p.Id == productId);
             if (product == null)
-                {
-                    response.Success = false;
-                    response.Message = "Sorry, but this product does not exist.";
-                }
-
-                else
-                {
-                    response.Success = true;
-                    response.Data = product;
-                }
-
-                return response;
-            }
-            public async Task<ServiceResponse<List<Product>>> GetProductsAsync()
             {
-                var response = new ServiceResponse<List<Product>>
-                {
-                    Data = await _context.Products
-                    .Where(p=> p.Visible && !p.Deleted)
-                    .Include(p=> p.Variants.Where(v=> v.Visible && !v.Deleted)).ToListAsync()
-                };
-
-                return response;
+                response.Success = false;
+                response.Message = "Sorry, but this product does not exist.";
             }
 
-            public async Task<ServiceResponse<List<Product>>> GetProductsByCategory(string categoryUrl)
+            else
             {
-                var response = new ServiceResponse<List<Product>>();
+                response.Success = true;
+                response.Data = product;
+            }
 
-                var products = await _context.Products
-                .Where(p => p.Category.Url.ToLower().Equals(categoryUrl.ToLower()) && p.Visible && !p.Deleted)
-                .Include(p => p.Variants.Where(v=> v.Visible && !v.Deleted))
-                .ToListAsync();
+            return response;
+        }
+        public async Task<ServiceResponse<List<Product>>> GetProductsAsync()
+        {
+            var response = new ServiceResponse<List<Product>>
+            {
+                Data = await _context.Products
+                .Where(p => p.Visible && !p.Deleted)
+                .Include(p => p.Variants.Where(v => v.Visible && !v.Deleted)).ToListAsync()
+            };
 
-                if (products == null || products.Count == 0)
-                {
-                    response.Success = false;
-                    response.Message = "List of products not found";
-                    return response;
-                }
-                response.Data = products;
+            return response;
+        }
+
+        public async Task<ServiceResponse<List<Product>>> GetProductsByCategory(string categoryUrl)
+        {
+            var response = new ServiceResponse<List<Product>>();
+
+            var products = await _context.Products
+            .Where(p => p.Category.Url.ToLower().Equals(categoryUrl.ToLower()) && p.Visible && !p.Deleted)
+            .Include(p => p.Variants.Where(v => v.Visible && !v.Deleted))
+            .ToListAsync();
+
+            if (products == null || products.Count == 0)
+            {
+                response.Success = false;
+                response.Message = "List of products not found";
                 return response;
             }
+            response.Data = products;
+            return response;
+        }
 
         public async Task<ServiceResponse<List<string>>> GetProductSearchSuggestions(string searchText)
         {
@@ -113,7 +113,7 @@ namespace GeekVerse.Server.Services.ProductService
 
             foreach (var product in products)
             {
-                if(product.Title.Contains(searchText, StringComparison.OrdinalIgnoreCase)) 
+                if (product.Title.Contains(searchText, StringComparison.OrdinalIgnoreCase))
                 {
                     result.Add(product.Title);
                 }
@@ -128,7 +128,7 @@ namespace GeekVerse.Server.Services.ProductService
 
                     foreach (var word in words)
                     {
-                        if(word.Contains(searchText, StringComparison.OrdinalIgnoreCase) && !result.Contains(word))
+                        if (word.Contains(searchText, StringComparison.OrdinalIgnoreCase) && !result.Contains(word))
                         {
                             result.Add(word);
                         }
@@ -137,7 +137,7 @@ namespace GeekVerse.Server.Services.ProductService
             }
 
 
-             return new ServiceResponse<List<string>> { Data = result };
+            return new ServiceResponse<List<string>> { Data = result };
         }
 
         public async Task<ServiceResponse<ProductSearchResult>> SearchProducts(string searchText, int page)
@@ -146,8 +146,8 @@ namespace GeekVerse.Server.Services.ProductService
             var pageCounts = Math.Ceiling((await FindProductsBySeachText(searchText)).Count / maxProductsPerPage);
             var products = await _context.Products
                               .Where(p => p.Title.ToLower().Contains(searchText.ToLower()) ||
-                                  p.Description.ToLower().Contains(searchText.ToLower()) 
-                                  && p.Visible && p.Deleted) 
+                                  p.Description.ToLower().Contains(searchText.ToLower())
+                                  && p.Visible && p.Deleted)
                               .Include(p => p.Variants)
                               .Skip((page - 1) * (int)maxProductsPerPage)
                               .Take((int)maxProductsPerPage)
@@ -180,13 +180,13 @@ namespace GeekVerse.Server.Services.ProductService
 
         public async Task<ServiceResponse<Product>> CreateProduct(Product product)
         {
-           foreach( var variante in product.Variants )
+            foreach (var variante in product.Variants)
             {
                 //provisorio
                 variante.ProductType = null;
             }
 
-           _context.Products.Add(product);
+            _context.Products.Add(product);
             await _context.SaveChangesAsync();
 
             return new ServiceResponse<Product>
@@ -201,7 +201,7 @@ namespace GeekVerse.Server.Services.ProductService
             if (dbProduct == null)
             {
                 return new ServiceResponse<bool>
-                { 
+                {
                     Data = false,
                     Message = "Product now found.",
                     Success = false
@@ -217,7 +217,7 @@ namespace GeekVerse.Server.Services.ProductService
 
         public async Task<ServiceResponse<Product>> UpdateProduct(Product product)
         {
-           var dbProduct = await _context.Products.FindAsync(product.Id);
+            var dbProduct = await _context.Products.FindAsync(product.Id);
 
             if (dbProduct == null)
             {
@@ -235,18 +235,55 @@ namespace GeekVerse.Server.Services.ProductService
             dbProduct.Deleted = product.Deleted;
             dbProduct.Featured = product.Featured;
 
-            foreach( var variant in product.Variants )
+            foreach (var variant in product.Variants)
             {
                 var dbVariant = await _context.ProductVariant
                     .SingleOrDefaultAsync(v => v.ProductId == variant.ProductId &&
                     v.ProductTypeId == variant.ProductTypeId);
 
-                if ( dbVariant == null )
+                if (dbVariant == null)
                 {
-                    dbVariant.ProductType = null;
-                    //dbVariant.ProductType = 
-                    // NAO DEVERIA ADICIONAR VARIANT  EXISTE> DEVERIA ATUALIZAR!!
-                    _context.ProductVariant.Add(variant);
+                    dbVariant = new ProductVariant();
+                    //dbVariant.ProductType = null; //preciso disso ?
+                    //caso criando novo Variant
+                    if (variant.IsNew)
+                    {
+                        // ainda nao existe variant.ProductTypeId;
+                        _context.ProductVariant.Add(variant);
+                    }
+
+                    //caso atualizando Variant como
+                    else
+                    {
+                        var listOfVariants = await _context.ProductVariant
+                            .Where(v => v.ProductId.Equals(product.Id))
+                            .OrderBy(v => v.ProductTypeId)
+                            .ToListAsync();
+
+
+
+                        var variantsToRemove = listOfVariants
+                            .Where(v => !product.Variants.Any(updatedVariant => 
+                                updatedVariant.ProductTypeId.Equals(v.ProductTypeId) &&
+                                updatedVariant.Price.Equals(v.Price) && 
+                                updatedVariant.OriginalPrice.Equals(v.OriginalPrice) && 
+                                updatedVariant.Visible.Equals(v.Visible) &&
+                                updatedVariant.Deleted.Equals(v.Deleted)))
+                            .ToList();
+
+
+                        _context.ProductVariant.RemoveRange(variantsToRemove);
+                        await _context.SaveChangesAsync();
+
+                        variant.ProductType = null;
+                        _context.ProductVariant.Add(variant);
+                        await _context.SaveChangesAsync(); //AQUI
+                        //product
+
+
+                    }
+
+
                 }
 
                 //Pq precisa atualizar ProductId tbm ? Depois de atualzar Price e Original Price da variante de um produto,
@@ -258,7 +295,7 @@ namespace GeekVerse.Server.Services.ProductService
                 dbVariant.Visible = variant.Visible;
 
             }
-                //dbvariante tem escopo restrito no loop. Esse save nao deveria esta dentro do foreach ?
+            //dbvariante tem escopo restrito no loop. Esse save nao deveria esta dentro do foreach ?
             await _context.SaveChangesAsync();
 
             //certo seria retornar dbProduct com o estado mais atual do que foi feito no Banco de Dados. Nao??
@@ -268,5 +305,5 @@ namespace GeekVerse.Server.Services.ProductService
             };
         }
     }
-    
+
 }
