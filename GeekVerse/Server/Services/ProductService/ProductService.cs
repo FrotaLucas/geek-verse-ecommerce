@@ -257,7 +257,6 @@ namespace GeekVerse.Server.Services.ProductService
                     {
                         var listOfVariants = await _context.ProductVariant
                             .Where(v => v.ProductId.Equals(product.Id))
-                            .OrderBy(v => v.ProductTypeId)
                             .ToListAsync();
 
 
