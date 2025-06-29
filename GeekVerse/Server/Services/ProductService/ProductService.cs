@@ -257,8 +257,7 @@ namespace GeekVerse.Server.Services.ProductService
                 if (variantToBeUpdated == null)
                 {
                     var newVariant = new ProductVariant();
-                    //todo ProductTypeId dentro de variantsOfProduct que nao esta dentro da lista dos ProductTypeId do product.Variants
-                    //pode ser removido
+                    //remover toda variant do db que nao esta na product.Variants
                     var rangeToBeRemoved = availableProducts
                         .Where(dbVariant => !product.Variants
                             .Any(v => v.ProductTypeId.Equals(dbVariant.ProductTypeId)))
