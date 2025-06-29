@@ -235,65 +235,128 @@ namespace GeekVerse.Server.Services.ProductService
             dbProduct.Deleted = product.Deleted;
             dbProduct.Featured = product.Featured;
 
-            foreach (var variant in product.Variants)
+            foreach (var myVariant in product.Variants)
             {
-                var dbVariant = await _context.ProductVariant
-                    .SingleOrDefaultAsync(v => v.ProductId == variant.ProductId &&
-                    v.ProductTypeId == variant.ProductTypeId);
-
-                if (dbVariant == null)
+                //CRIANDO NOVA VARIANTE
+                if (myVariant.IsNew == true)
                 {
-                    dbVariant = new ProductVariant();
-                    //dbVariant.ProductType = null; //preciso disso ?
-                    //caso criando novo Variant
-                    if (variant.IsNew)
-                    {
-                        // ainda nao existe variant.ProductTypeId;
-                        _context.ProductVariant.Add(variant);
-                    }
+                    _context.ProductVariant.Add(myVariant);
+                    await _context.SaveChangesAsync();
 
-                    //caso atualizando Variant como
-                    else
-                    {
-                        var listOfVariants = await _context.ProductVariant
-                            .Where(v => v.ProductId.Equals(product.Id))
-                            .ToListAsync();
-
-
-
-                        var variantsToRemove = listOfVariants
-                            .Where(v => !product.Variants.Any(updatedVariant => 
-                                updatedVariant.ProductTypeId.Equals(v.ProductTypeId) &&
-                                updatedVariant.Price.Equals(v.Price) && 
-                                updatedVariant.OriginalPrice.Equals(v.OriginalPrice) && 
-                                updatedVariant.Visible.Equals(v.Visible) &&
-                                updatedVariant.Deleted.Equals(v.Deleted)))
-                            .ToList();
-
-
-                        _context.ProductVariant.RemoveRange(variantsToRemove);
-                        await _context.SaveChangesAsync();
-
-                        variant.ProductType = null;
-                        _context.ProductVariant.Add(variant);
-                        await _context.SaveChangesAsync(); //AQUI
-                        //product
-
-
-                    }
-
-
+                    continue;
                 }
 
-                //Pq precisa atualizar ProductId tbm ? Depois de atualzar Price e Original Price da variante de um produto,
-                //a variante ainda vai continuar se referenciando sobre o mesmo produto!!
-                dbVariant.ProductId = variant.ProductId;
-                dbVariant.OriginalPrice = variant.OriginalPrice;
-                dbVariant.Price = variant.Price;
-                dbVariant.Deleted = variant.Deleted;
-                dbVariant.Visible = variant.Visible;
+                //lista ANTIGA de todos variantes com productId 18
+                var variantsOfProduct = await _context.ProductVariant.Where(v => v.ProductId == myVariant.ProductId &&
+                    v.Deleted == false).ToListAsync();
+
+                //ATUALIZANDO VARIANTE ANTIGA
+                var rangeToBeUpdated = variantsOfProduct.Find(v => v.ProductTypeId == myVariant.ProductTypeId);
+
+                //VARIANT AINDA nao ta no BD
+                if (rangeToBeUpdated == null)
+                {
+                    var newVariant = new ProductVariant();
+                    //todo ProductTypeId dentro de variantsOfProduct que nao esta dentro da lista dos ProductTypeId do product.Variants
+                    //pode ser removido
+                    var rangeToBeRemoved = variantsOfProduct
+                        .Where(dbVariant => !product.Variants
+                            .Any(v => v.ProductTypeId.Equals(dbVariant.ProductTypeId)))
+                        .ToList();
+
+                    if (rangeToBeRemoved != null && rangeToBeRemoved.Any() ) {
+                        _context.RemoveRange(rangeToBeRemoved);
+                        await _context.SaveChangesAsync();
+                    }
+
+
+                    newVariant = myVariant;
+                    newVariant.ProductType = null;
+                    _context.ProductVariant.Add(newVariant);
+                    _context.SaveChanges();
+
+                    continue;
+                }
+
+
+                //variant esta no BD
+
+                var dbbVariant = await _context.ProductVariant.SingleOrDefaultAsync(v =>
+                    v.ProductId == myVariant.ProductId && 
+                    v.ProductTypeId == myVariant.ProductTypeId && 
+                    v.Deleted == false);
+
+                dbbVariant.ProductId = myVariant.ProductId;
+                dbbVariant.OriginalPrice = myVariant.OriginalPrice;
+                dbbVariant.Price = myVariant.Price;
+                dbbVariant.Deleted = myVariant.Deleted;
+                dbbVariant.Visible = myVariant.Visible;
+
+                //e quando deletou tudo ??
+
 
             }
+
+            //foreach (var variant in product.Variants)
+            //{
+            //    var dbVariant = await _context.ProductVariant
+            //        .SingleOrDefaultAsync(v => v.ProductId == variant.ProductId &&
+            //        v.ProductTypeId == variant.ProductTypeId);
+
+            //    if (dbVariant == null)
+            //    {
+            //        dbVariant = new ProductVariant();
+            //        //dbVariant.ProductType = null; //preciso disso ?
+            //        //caso criando novo Variant
+            //        if (variant.IsNew)
+            //        {
+            //            // ainda nao existe variant.ProductTypeId;
+            //            _context.ProductVariant.Add(variant);
+            //        }
+
+            //        //caso atualizando Variant como
+            //        else
+            //        {
+            //            var listOfVariants = await _context.ProductVariant
+            //                .Where(v => v.ProductId.Equals(product.Id))
+            //                .ToListAsync();
+
+
+
+            //            var variantsToRemove = listOfVariants
+            //                .Where(v => !product.Variants.Any(updatedVariant => 
+            //                    updatedVariant.ProductTypeId.Equals(v.ProductTypeId) &&
+            //                    updatedVariant.Price.Equals(v.Price) && 
+            //                    updatedVariant.OriginalPrice.Equals(v.OriginalPrice) && 
+            //                    updatedVariant.Visible.Equals(v.Visible) &&
+            //                    updatedVariant.Deleted.Equals(v.Deleted)))
+            //                .ToList();
+
+
+            //            _context.ProductVariant.RemoveRange(variantsToRemove);
+            //            await _context.SaveChangesAsync();
+
+            //            variant.ProductType = null;
+            //            _context.ProductVariant.Add(variant);
+            //            await _context.SaveChangesAsync(); //AQUI
+            //            //product
+
+
+            //        }
+
+
+            //    }
+
+            //    //Pq precisa atualizar ProductId tbm ? Depois de atualzar Price e Original Price da variante de um produto,
+            //    //a variante ainda vai continuar se referenciando sobre o mesmo produto!!
+            //    dbVariant.ProductId = variant.ProductId;
+            //    dbVariant.OriginalPrice = variant.OriginalPrice;
+            //    dbVariant.Price = variant.Price;
+            //    dbVariant.Deleted = variant.Deleted;
+            //    dbVariant.Visible = variant.Visible;
+
+            //}
+
             //dbvariante tem escopo restrito no loop. Esse save nao deveria esta dentro do foreach ?
             await _context.SaveChangesAsync();
 
