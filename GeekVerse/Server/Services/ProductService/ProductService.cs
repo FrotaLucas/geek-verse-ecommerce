@@ -284,7 +284,6 @@ namespace GeekVerse.Server.Services.ProductService
 
             await _context.SaveChangesAsync();
 
-            //certo seria retornar dbProduct com o estado mais atual do que foi feito no Banco de Dados. Nao??
             return new ServiceResponse<Product>
             {
                 Data = product,
