@@ -266,7 +266,6 @@ namespace GeekVerse.Server.Services.ProductService
                         await _context.SaveChangesAsync();
                     }
 
-
                     newVariant = variant;
                     newVariant.ProductType = null;
                     _context.ProductVariant.Add(newVariant);
