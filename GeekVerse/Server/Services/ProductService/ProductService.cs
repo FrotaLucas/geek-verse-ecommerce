@@ -285,7 +285,6 @@ namespace GeekVerse.Server.Services.ProductService
                     v.ProductTypeId == variant.ProductTypeId && 
                     v.Deleted == false);
 
-                dbVariant.ProductId = variant.ProductId;
                 dbVariant.OriginalPrice = variant.OriginalPrice;
                 dbVariant.Price = variant.Price;
                 dbVariant.Deleted = variant.Deleted;
