@@ -251,10 +251,10 @@ namespace GeekVerse.Server.Services.ProductService
                     v.Deleted == false).ToListAsync();
 
                 //ATUALIZANDO VARIANTE ANTIGA
-                var rangeToBeUpdated = availableProducts.Find(v => v.ProductTypeId == variant.ProductTypeId);
+                var variantToBeUpdated = availableProducts.Find(v => v.ProductTypeId == variant.ProductTypeId);
 
                 //VARIANT AINDA nao ta no BD
-                if (rangeToBeUpdated == null)
+                if (variantToBeUpdated == null)
                 {
                     var newVariant = new ProductVariant();
                     //todo ProductTypeId dentro de variantsOfProduct que nao esta dentro da lista dos ProductTypeId do product.Variants
