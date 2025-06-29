@@ -277,16 +277,11 @@ namespace GeekVerse.Server.Services.ProductService
                     continue;
                 }
 
-
                 //variant esta no BD
                 variantToBeUpdated.OriginalPrice = variant.OriginalPrice;
                 variantToBeUpdated.Price = variant.Price;
                 variantToBeUpdated.Deleted = variant.Deleted;
                 variantToBeUpdated.Visible = variant.Visible;
-
-                //e quando deletou tudo ??
-
-
             }
 
             //foreach (var variant in product.Variants)
