@@ -247,11 +247,11 @@ namespace GeekVerse.Server.Services.ProductService
                 }
 
                 //lista ANTIGA de todos variantes com productId 18
-                var variantsOfProduct = await _context.ProductVariant.Where(v => v.ProductId == variant.ProductId &&
+                var outdatedVariants = await _context.ProductVariant.Where(v => v.ProductId == variant.ProductId &&
                     v.Deleted == false).ToListAsync();
 
                 //ATUALIZANDO VARIANTE ANTIGA
-                var rangeToBeUpdated = variantsOfProduct.Find(v => v.ProductTypeId == variant.ProductTypeId);
+                var rangeToBeUpdated = outdatedVariants.Find(v => v.ProductTypeId == variant.ProductTypeId);
 
                 //VARIANT AINDA nao ta no BD
                 if (rangeToBeUpdated == null)
@@ -259,7 +259,7 @@ namespace GeekVerse.Server.Services.ProductService
                     var newVariant = new ProductVariant();
                     //todo ProductTypeId dentro de variantsOfProduct que nao esta dentro da lista dos ProductTypeId do product.Variants
                     //pode ser removido
-                    var rangeToBeRemoved = variantsOfProduct
+                    var rangeToBeRemoved = outdatedVariants
                         .Where(dbVariant => !product.Variants
                             .Any(v => v.ProductTypeId.Equals(dbVariant.ProductTypeId)))
                         .ToList();
