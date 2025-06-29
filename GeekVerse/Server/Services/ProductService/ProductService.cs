@@ -275,7 +275,7 @@ namespace GeekVerse.Server.Services.ProductService
                     continue;
                 }
 
-                //variant esta no BD
+                //variant esta no DB
                 variantToBeUpdated.OriginalPrice = variant.OriginalPrice;
                 variantToBeUpdated.Price = variant.Price;
                 variantToBeUpdated.Deleted = variant.Deleted;
