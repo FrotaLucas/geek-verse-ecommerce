@@ -282,7 +282,6 @@ namespace GeekVerse.Server.Services.ProductService
                 variantToBeUpdated.Visible = variant.Visible;
             }
 
-            //dbvariante tem escopo restrito no loop. Esse save nao deveria esta dentro do foreach ?
             await _context.SaveChangesAsync();
 
             //certo seria retornar dbProduct com o estado mais atual do que foi feito no Banco de Dados. Nao??
