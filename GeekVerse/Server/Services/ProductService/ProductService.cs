@@ -249,10 +249,9 @@ namespace GeekVerse.Server.Services.ProductService
                 var availableProducts = await _context.ProductVariant.Where(v => v.ProductId == variant.ProductId &&
                     v.Deleted == false).ToListAsync();
 
-                //ATUALIZANDO VARIANTE ANTIGA
                 var variantToBeUpdated = availableProducts.Find(v => v.ProductTypeId == variant.ProductTypeId);
 
-                //VARIANT AINDA nao ta no BD
+                //variant ainda nao ta no BD
                 if (variantToBeUpdated == null)
                 {
                     var newVariant = new ProductVariant();
