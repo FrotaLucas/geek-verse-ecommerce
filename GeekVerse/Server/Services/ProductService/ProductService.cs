@@ -281,16 +281,16 @@ namespace GeekVerse.Server.Services.ProductService
 
                 //variant esta no BD
 
-                var dbbVariant = await _context.ProductVariant.SingleOrDefaultAsync(v =>
+                var dbVariant = await _context.ProductVariant.SingleOrDefaultAsync(v =>
                     v.ProductId == variant.ProductId && 
                     v.ProductTypeId == variant.ProductTypeId && 
                     v.Deleted == false);
 
-                dbbVariant.ProductId = variant.ProductId;
-                dbbVariant.OriginalPrice = variant.OriginalPrice;
-                dbbVariant.Price = variant.Price;
-                dbbVariant.Deleted = variant.Deleted;
-                dbbVariant.Visible = variant.Visible;
+                dbVariant.ProductId = variant.ProductId;
+                dbVariant.OriginalPrice = variant.OriginalPrice;
+                dbVariant.Price = variant.Price;
+                dbVariant.Deleted = variant.Deleted;
+                dbVariant.Visible = variant.Visible;
 
                 //e quando deletou tudo ??
 
