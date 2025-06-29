@@ -280,7 +280,6 @@ namespace GeekVerse.Server.Services.ProductService
 
 
                 //variant esta no BD
-
                 var dbVariant = await _context.ProductVariant.SingleOrDefaultAsync(v =>
                     v.ProductId == variant.ProductId && 
                     v.ProductTypeId == variant.ProductTypeId && 
