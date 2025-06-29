@@ -246,7 +246,6 @@ namespace GeekVerse.Server.Services.ProductService
                     continue;
                 }
 
-                //lista ANTIGA de todos variantes com productId 18
                 var availableProducts = await _context.ProductVariant.Where(v => v.ProductId == variant.ProductId &&
                     v.Deleted == false).ToListAsync();
 
