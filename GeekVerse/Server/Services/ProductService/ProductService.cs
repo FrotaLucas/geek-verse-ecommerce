@@ -237,7 +237,7 @@ namespace GeekVerse.Server.Services.ProductService
 
             foreach (var variant in product.Variants)
             {
-                //CRIANDO NOVA VARIANTE
+                //criando nova variant
                 if (variant.IsNew == true)
                 {
                     _context.ProductVariant.Add(variant);
