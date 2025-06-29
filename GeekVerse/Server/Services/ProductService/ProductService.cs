@@ -249,10 +249,10 @@ namespace GeekVerse.Server.Services.ProductService
                 var availableProducts = await _context.ProductVariant.Where(v => v.ProductId == variant.ProductId &&
                     v.Deleted == false).ToListAsync();
 
-                var variantToBeUpdated = availableProducts.Find(v => v.ProductTypeId == variant.ProductTypeId);
+                var dbVariant = availableProducts.Find(v => v.ProductTypeId == variant.ProductTypeId);
 
                 //variant ainda nao ta no BD
-                if (variantToBeUpdated == null)
+                if (dbVariant == null)
                 {
                     var newVariant = new ProductVariant();
                     //remover toda variant do db que nao esta na product.Variants
@@ -276,10 +276,10 @@ namespace GeekVerse.Server.Services.ProductService
                 }
 
                 //variant esta no DB
-                variantToBeUpdated.OriginalPrice = variant.OriginalPrice;
-                variantToBeUpdated.Price = variant.Price;
-                variantToBeUpdated.Deleted = variant.Deleted;
-                variantToBeUpdated.Visible = variant.Visible;
+                dbVariant.OriginalPrice = variant.OriginalPrice;
+                dbVariant.Price = variant.Price;
+                dbVariant.Deleted = variant.Deleted;
+                dbVariant.Visible = variant.Visible;
             }
 
             await _context.SaveChangesAsync();
