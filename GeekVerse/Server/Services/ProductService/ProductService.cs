@@ -235,23 +235,23 @@ namespace GeekVerse.Server.Services.ProductService
             dbProduct.Deleted = product.Deleted;
             dbProduct.Featured = product.Featured;
 
-            foreach (var myVariant in product.Variants)
+            foreach (var variant in product.Variants)
             {
                 //CRIANDO NOVA VARIANTE
-                if (myVariant.IsNew == true)
+                if (variant.IsNew == true)
                 {
-                    _context.ProductVariant.Add(myVariant);
+                    _context.ProductVariant.Add(variant);
                     await _context.SaveChangesAsync();
 
                     continue;
                 }
 
                 //lista ANTIGA de todos variantes com productId 18
-                var variantsOfProduct = await _context.ProductVariant.Where(v => v.ProductId == myVariant.ProductId &&
+                var variantsOfProduct = await _context.ProductVariant.Where(v => v.ProductId == variant.ProductId &&
                     v.Deleted == false).ToListAsync();
 
                 //ATUALIZANDO VARIANTE ANTIGA
-                var rangeToBeUpdated = variantsOfProduct.Find(v => v.ProductTypeId == myVariant.ProductTypeId);
+                var rangeToBeUpdated = variantsOfProduct.Find(v => v.ProductTypeId == variant.ProductTypeId);
 
                 //VARIANT AINDA nao ta no BD
                 if (rangeToBeUpdated == null)
@@ -270,7 +270,7 @@ namespace GeekVerse.Server.Services.ProductService
                     }
 
 
-                    newVariant = myVariant;
+                    newVariant = variant;
                     newVariant.ProductType = null;
                     _context.ProductVariant.Add(newVariant);
                     _context.SaveChanges();
@@ -282,15 +282,15 @@ namespace GeekVerse.Server.Services.ProductService
                 //variant esta no BD
 
                 var dbbVariant = await _context.ProductVariant.SingleOrDefaultAsync(v =>
-                    v.ProductId == myVariant.ProductId && 
-                    v.ProductTypeId == myVariant.ProductTypeId && 
+                    v.ProductId == variant.ProductId && 
+                    v.ProductTypeId == variant.ProductTypeId && 
                     v.Deleted == false);
 
-                dbbVariant.ProductId = myVariant.ProductId;
-                dbbVariant.OriginalPrice = myVariant.OriginalPrice;
-                dbbVariant.Price = myVariant.Price;
-                dbbVariant.Deleted = myVariant.Deleted;
-                dbbVariant.Visible = myVariant.Visible;
+                dbbVariant.ProductId = variant.ProductId;
+                dbbVariant.OriginalPrice = variant.OriginalPrice;
+                dbbVariant.Price = variant.Price;
+                dbbVariant.Deleted = variant.Deleted;
+                dbbVariant.Visible = variant.Visible;
 
                 //e quando deletou tudo ??
 
