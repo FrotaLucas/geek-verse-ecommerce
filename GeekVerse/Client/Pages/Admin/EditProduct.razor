@@ -29,12 +29,12 @@ else
             <DataAnnotationsValidator></DataAnnotationsValidator>
             <div class="mb-2">
                 <label for="title" class="mb-1">Title</label>
-                <InputText id="title" @bind-Value=product.Title class="form-control"></InputText>
+                <InputText id="title" @bind-Value=product.Title class="form-control" style="margin-bottom: 20px;"></InputText>
             </div>
 
             <div class="mb-2">
                 <label for="imageUrl" class="mb-1">Image Url</label>
-                <InputText id="imageUrl" @bind-Value=product.ImageUrl class="form-control"></InputText>
+                <InputText id="imageUrl" @bind-Value=product.ImageUrl class="form-control" style="margin-bottom: 20px;"></InputText>
             </div>
 
             <div class="mb-2">
@@ -43,7 +43,7 @@ else
 
             <div class="mb-2">
                 <label for="description" class="mb-1">Description</label>
-                <InputTextArea id="description" @bind-Value=product.Description class="form-control"></InputTextArea>
+                <InputTextArea id="description" @bind-Value=product.Description class="form-control" style="height: 150px;"></InputTextArea>
             </div>
 
             <hr />
