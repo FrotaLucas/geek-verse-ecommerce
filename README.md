@@ -5,8 +5,7 @@
 This project is a **Fullstack Web Development application in C#** designed to simulate a real e-commerce platform, with robust features for both **customers** and **administrators**. Geek Verse is more than just a technical project: it's the fusion of software development and pop culture. It’s a store built by a fan, for fans — focused on scalability, solid architecture, and user experience.
 
 # Home Page
-![Animation](https://github.com/user-attachments/assets/ae4c30df-5c68-4fa2-a023-0e37ae430948)
-division
+
 ![Geek_Verse](https://github.com/user-attachments/assets/bdd34ea7-bf13-46fd-afff-8979e9be666f)
 
 > *Note: While both admins and customers see the same homepage UI, menu items are dynamically rendered according to user permissions.* <
