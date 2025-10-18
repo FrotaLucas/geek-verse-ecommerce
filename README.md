@@ -7,8 +7,6 @@ This project is a **Fullstack Web Development application in C#** designed to si
 # Home Page
 ![Animation](https://github.com/user-attachments/assets/ae4c30df-5c68-4fa2-a023-0e37ae430948)
 
-![image](https://github.com/user-attachments/assets/c6123e97-dc19-4726-bf47-61f31eaacd45)
-
 > *Note: While both admins and customers see the same homepage UI, menu items are dynamically rendered according to user permissions.* <
 
 ## Project Goal 
