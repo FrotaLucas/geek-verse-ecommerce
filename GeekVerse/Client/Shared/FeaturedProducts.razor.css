@@ -32,7 +32,7 @@ img:hover
     max-width: 200px;
 }
 
-@media (max-width: 1023.98px) {
+@media (min-width: 641px) {
     .container {
         justify-content: flex-start;
     }
