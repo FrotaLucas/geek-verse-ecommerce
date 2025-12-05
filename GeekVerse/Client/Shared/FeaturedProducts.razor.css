@@ -8,8 +8,8 @@ h2{
 }
 
 img {
-    max-width: 200px;
-    max-height: 200px;
+    max-width: 150px;
+    max-height: 150px;
     border-radius: 6px;
     transition: transform .15s;
     margin-bottom: 10px;
