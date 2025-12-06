@@ -19,19 +19,16 @@ a {
     height: 3.5rem;
 }
 
+
 .item {
     padding: 6px;
 }
 
+
 /*new css style*/
+
 .mobile-nav {
     display: flex;
-}
-
-.menu-layout {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
 }
 
 .desk-nav {
@@ -50,9 +47,10 @@ a {
 }
 
 
-.mobile-menu.open {
-    right: 0;
-}
+    .mobile-menu.open {
+        right: 0;
+    }
+
 
 @media (min-width: 641px) {
 
@@ -63,15 +61,13 @@ a {
     .mobile-nav {
         display: none;
     }
- 
-
 
     .menu-layout {
+        display: flex;
         flex-direction: row;
         height: 58px;
         align-items: center;
     }
-
 
     .item {
         padding: 15px;
@@ -86,9 +82,9 @@ a {
             transition: 0.3s;
         }
 
-        .item:hover a {
-            transform: scale(1.1);
-            display: inline-block;
-            transition: transform 0.3s ease;
-        }
+            .item:hover a {
+                transform: scale(1.1);
+                display: inline-block;
+                transition: transform 0.3s ease;
+            }
 }
