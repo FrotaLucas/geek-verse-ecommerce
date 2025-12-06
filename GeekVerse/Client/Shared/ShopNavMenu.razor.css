@@ -70,9 +70,6 @@ a {
         display: none;
     }
 
-    .collapse-category {
-        display: block;
-    }
 
     .menu-layout {
         flex-direction: row;
