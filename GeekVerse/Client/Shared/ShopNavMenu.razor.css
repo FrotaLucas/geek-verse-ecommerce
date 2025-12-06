@@ -50,6 +50,10 @@ a {
     display: none;
 }
 
+.mobile-menu.open {
+    right: 0;
+}
+
 @media (min-width: 641px) {
 
     .collapse-mobile-category {
