@@ -2,80 +2,81 @@
 @implements IDisposable
 
 @* MOBILE *@
+
 <div class="mobile-nav title-application navbar navbar-dark">
-    <div class="container-fluid">
-        <a class="brand" href="">Start buying</a>
-        <button title="navigation_menu" class="navbar-toggler" @onclick="ToggleMenuMobile">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-    </div>
+	<div class="container-fluid">
+		<a class="brand" href="">Start buying</a>
+		<button title="navigation_menu" class="navbar-toggler" @onclick="ToggleMenuMobile">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+	</div>
 </div>
 
 <div class="mobile-menu @(collapseMenuMobile ? " " : "open")" @onclick="ToggleMenuMobile">
 
-    <nav>
-        <div class="item">
-            <a href="">Home</a>
-        </div>
+	<nav>
+		<div class="item">
+			<a href="">Home</a>
+		</div>
 
-        @foreach (var category in CategoryService.Categories)
-        {
-            <div class="item">
-                <a href="@category.Url">
-                    @category.Name
-                </a>
-            </div>
-        }
-    </nav>
+		@foreach (var category in CategoryService.Categories)
+		{
+			<div class="item">
+				<a href="@category.Url">
+					@category.Name
+				</a>
+			</div>
+		}
+	</nav>
 
 </div>
 
 
-
 @* DESK *@
+
 <div class="desk-nav">
-    <nav class="menu-layout">
-        <div class="item">
-            <a href="">
-                <span class="oi oi-home" aria-hidden="true"></span> Home
-            </a>
-        </div>
-        @if (CategoryService.Categories != null)
-        {
-            @foreach (var category in CategoryService.Categories)
-            {
-                <div class="item">
-                    <a href="@category.Url">
-                        @category.Name
-                    </a>
-                </div>
+	<nav class="menu-layout">
+		<div class="item">
+			<a href="">
+				<span class="oi oi-home" aria-hidden="true"></span> Home
+			</a>
+		</div>
+		@if (CategoryService.Categories != null)
+		{
+			@foreach (var category in CategoryService.Categories)
+			{
+				<div class="item">
+					<a href="@category.Url">
+						@category.Name
+					</a>
+				</div>
 
-            }
-        }
+			}
+		}
 
-    </nav>
+	</nav>
 </div>
 
 @code {
 
-    private bool collapseMenuMobile = true;
+	private bool collapseMenuMobile = true;
 
-    private void ToggleMenuMobile()
-    {
-        collapseMenuMobile = !collapseMenuMobile;
-    }
+	private void ToggleMenuMobile()
+	{
+		collapseMenuMobile = !collapseMenuMobile;
+	}
 
-    //pq esse metodo precisa ser overrride protected ?
-    //eese metodo que faz aparecer em dev tool network a api Category. Pq fica registrado com esse nome ????
-    protected override async Task OnInitializedAsync()
-    {
-        await CategoryService.GetCategories();
-        CategoryService.OnChange += StateHasChanged;
-    }
+	//pq esse metodo precisa ser overrride protected ?
+	//eese metodo que faz aparecer em dev tool network a api Category. Pq fica registrado com esse nome ????
+	protected override async Task OnInitializedAsync()
+	{
+		await CategoryService.GetCategories();
+		CategoryService.OnChange += StateHasChanged;
+	}
 
-    public void Dispose()
-    {
-        CategoryService.OnChange -= StateHasChanged;
-    }
+	public void Dispose()
+	{
+		CategoryService.OnChange -= StateHasChanged;
+	}
 
 }
