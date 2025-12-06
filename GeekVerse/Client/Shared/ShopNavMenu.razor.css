@@ -23,10 +23,9 @@ a {
     padding: 6px;
 }
 
-.collapse-mobile-category {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height .2s ease-out;
+/*new css style*/
+.mobile-nav {
+    display: flex;
 }
 
 .expand-mobile-category {
@@ -42,9 +41,6 @@ a {
 }
 
 
-.mobile-nav {
-    display: flex;
-}
 
 
 .desk-nav {
