@@ -15,9 +15,9 @@
 <div class="mobile-menu @(collapseMenuMobile ? " " : "open")" @onclick="ToggleMenuMobile">
 
 	<nav>
-		<div class="item">
+		@* <div class="item"> *@
 			<a href="">Home</a>
-		</div>
+		@* </div> *@
 
 		@foreach (var category in CategoryService.Categories)
 		{
