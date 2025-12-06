@@ -38,8 +38,8 @@
 
 
 @* DESK *@
-<div>
-    <nav class="dev-nav">
+<div class="desk-nav">
+    <nav class="menu-layout">
         <div class="item">
             <a href="">
                 <span class="oi oi-home" aria-hidden="true"></span> Home
@@ -47,7 +47,6 @@
         </div>
         @if (CategoryService.Categories != null)
         {
-
             @foreach (var category in CategoryService.Categories)
             {
                 <div class="item">
