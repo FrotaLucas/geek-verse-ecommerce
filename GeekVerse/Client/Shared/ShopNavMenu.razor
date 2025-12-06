@@ -11,7 +11,7 @@
     </div>
 </div>
 
-<div class="@NavMenuCssMobile" @onclick="ToggleNavMenu">
+<div class="@NavMenuCssMobile">
     <nav class="menu-layout">
         <div class="item">
             <a href="">
@@ -68,10 +68,6 @@
 
     private string? NavMenuCssMobile => collapseMenuMobile ? "collapse-mobile-category" : "expand-mobile-category";
 
-    private void ToggleNavMenu()
-    {
-        collapseMenuMobile = true;
-    }
 
     private void ToggleMenuMobile()
     {
