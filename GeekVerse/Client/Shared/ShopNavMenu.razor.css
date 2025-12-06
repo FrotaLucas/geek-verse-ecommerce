@@ -19,6 +19,11 @@ a {
     height: 3.5rem;
 }
 
+.menu-layout {
+    display: flex;
+    flex-direction: column;
+}
+
 
 .item {
     padding: 6px;
