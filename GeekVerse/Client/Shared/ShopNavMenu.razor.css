@@ -66,6 +66,12 @@ a {
  
 
 
+    .menu-layout {
+        flex-direction: row;
+        height: 58px;
+        align-items: center;
+    }
+
     .collapse-mobile-category {
         max-height: unset;
         overflow: unset;
@@ -76,12 +82,6 @@ a {
         display: none;
     }
 
-
-    .menu-layout {
-        flex-direction: row;
-        height: 58px;
-        align-items: center;
-    }
 
     .item {
         padding: 15px;
