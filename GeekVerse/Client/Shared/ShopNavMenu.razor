@@ -45,11 +45,9 @@
 		{
 			@foreach (var category in CategoryService.Categories)
 			{
-				@* <div class="item">  *@
 				<a class="item" href="@category.Url">
-						@category.Name
-					</a>
-				@* </div> *@
+					@category.Name
+				</a>
 
 			}
 		}
