@@ -45,6 +45,11 @@ a {
     display: flex;
 }
 
+
+.desk-nav {
+    display: none;
+}
+
 @media (min-width: 641px) {
 
     .collapse-mobile-category {
