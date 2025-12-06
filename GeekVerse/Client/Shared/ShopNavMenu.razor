@@ -1,6 +1,7 @@
 ﻿@inject ICategoryService CategoryService
 @implements IDisposable
 
+@* MOBILE *@
 <div class="title-application navbar navbar-dark">
     <div class="container-fluid">
         <a class="brand" href="">Start buying</a>
@@ -10,9 +11,34 @@
     </div>
 </div>
 
-@*Para Desk: Quando uma category eh clicada, o elemento nav permanece = ) Isso acontece pq ao clicar em category
- ai sendo retitada a propriedade display:block, o resultado eh o mesmo dado que 
-pq ocaso Desk ter display:block ou nao ter tanto faz*@
+<div class="@NavMenuCssClass @NavMenuCssMobile" @onclick="ToggleNavMenu">
+    @* Esse ToggleNavMenu funciona apenas para Mobile*@
+    <nav class="menu-layout">
+        <div class="item">
+            <a href="">
+                <span class="oi oi-home" aria-hidden="true"></span> Home
+            </a>
+        </div>
+        @if (CategoryService.Categories != null)
+        {
+
+            @foreach (var category in CategoryService.Categories)
+            {
+                <div class="item">
+                    <a href="@category.Url">
+                        @category.Name
+                    </a>
+                </div>
+
+            }
+        }
+
+    </nav>
+</div>
+
+
+
+@* DESK *@
 <div class="@NavMenuCssClass @NavMenuCssMobile" @onclick="ToggleNavMenu"> @* Esse ToggleNavMenu funciona apenas para Mobile*@
     <nav class="menu-layout">
         <div class="item">
