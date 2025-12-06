@@ -41,6 +41,16 @@ a {
 }
 
 
+.mobile-menu {
+    position: fixed;
+    right: -100%;
+    background-image: linear-gradient(180deg, rgb(44, 62, 88) 0%, rgb(52, 73, 94) 70%);
+    width: 250px;
+    height: 100%;
+    padding: 20px;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.3);
+    transition: right 1.5s;
+}
 
 
 .desk-nav {
