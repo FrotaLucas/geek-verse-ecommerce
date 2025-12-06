@@ -15,17 +15,13 @@
 <div class="mobile-menu @(collapseMenuMobile ? " " : "open")" @onclick="ToggleMenuMobile">
 
 	<nav>
-		@* <div class="item"> *@
-			<a href="">Home</a>
-		@* </div> *@
+		<a href="">Home</a>
 
 		@foreach (var category in CategoryService.Categories)
 		{
-			@* <div class="item"> *@
-				<a href="@category.Url">
-					@category.Name
-				</a>
-			@* </div> *@
+			<a href="@category.Url">
+				@category.Name
+			</a>
 		}
 	</nav>
 
@@ -36,9 +32,9 @@
 
 <div class="desk-nav">
 	<nav class="menu-layout">
-			<a class="item" href="">
-				<span class="oi oi-home" aria-hidden="true"></span> Home
-			</a>
+		<a class="item" href="">
+			<span class="oi oi-home" aria-hidden="true"></span> Home
+		</a>
 		@if (CategoryService.Categories != null)
 		{
 			@foreach (var category in CategoryService.Categories)
