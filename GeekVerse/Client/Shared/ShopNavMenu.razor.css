@@ -60,6 +60,12 @@ a {
         display: flex;
     }
 
+    .mobile-nav {
+        display: none;
+    }
+ 
+
+
     .collapse-mobile-category {
         max-height: unset;
         overflow: unset;
