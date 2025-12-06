@@ -72,12 +72,6 @@ a {
         align-items: center;
     }
 
-    .collapse-mobile-category {
-        max-height: unset;
-        overflow: unset;
-        transition: unset;
-    }
-
     .title-application {
         display: none;
     }
