@@ -50,12 +50,15 @@ a {
 }
 
 
-
 .mobile-menu.open {
     right: 0;
 }
 
 @media (min-width: 641px) {
+
+    .desk-nav {
+        display: flex;
+    }
 
     .collapse-mobile-category {
         max-height: unset;
