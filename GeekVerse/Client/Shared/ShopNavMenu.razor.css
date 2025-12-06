@@ -41,6 +41,10 @@ a {
     padding: 6px;
 }
 
+.mobile-nav {
+    display: flex;
+}
+
 @media (min-width: 641px) {
 
     .collapse-mobile-category {
