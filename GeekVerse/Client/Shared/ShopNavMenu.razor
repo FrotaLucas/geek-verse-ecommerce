@@ -12,7 +12,6 @@
 </div>
 
 <div class="@NavMenuCssClass @NavMenuCssMobile" @onclick="ToggleNavMenu">
-    @* Esse ToggleNavMenu funciona apenas para Mobile*@
     <nav class="menu-layout">
         <div class="item">
             <a href="">
@@ -64,17 +63,13 @@
 </div>
 
 @code {
-    private bool collapseNavMenu = true;
 
     private bool collapseMenuMobile = true;
-
-    private string? NavMenuCssClass => collapseNavMenu ? "collapse-category" : null;
 
     private string? NavMenuCssMobile => collapseMenuMobile ? "collapse-mobile-category" : "expand-mobile-category";
 
     private void ToggleNavMenu()
     {
-        collapseNavMenu = !collapseNavMenu;
         collapseMenuMobile = true;
     }
 
