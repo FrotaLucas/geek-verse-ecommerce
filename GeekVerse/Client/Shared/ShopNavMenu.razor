@@ -14,7 +14,7 @@
 
 <div class="mobile-menu @(collapseMenuMobile ? " " : "open")" @onclick="ToggleMenuMobile">
 
-	<nav>
+	<nav class="menu-layout">
 		<a href="">Home</a>
 
 		@foreach (var category in CategoryService.Categories)
