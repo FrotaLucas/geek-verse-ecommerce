@@ -1,5 +1,6 @@
 ﻿@inject ICategoryService CategoryService
 @implements IDisposable
+@inject NavigationManager Navigation
 
 @* MOBILE *@
 
@@ -64,6 +65,7 @@
 	{
 		await CategoryService.GetCategories();
 		CategoryService.OnChange += StateHasChanged;
+
 	}
 
 	public void Dispose()
