@@ -72,6 +72,7 @@
 	public void Dispose()
 	{
 		CategoryService.OnChange -= StateHasChanged;
+		Navigation.LocationChanged -= HandleLocationChanged;
 	}
 
 	private void HandleLocationChanged(object sender, LocationChangedEventArgs e)
