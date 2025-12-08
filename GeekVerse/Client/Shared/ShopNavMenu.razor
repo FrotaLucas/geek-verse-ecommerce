@@ -66,11 +66,18 @@
 		await CategoryService.GetCategories();
 		CategoryService.OnChange += StateHasChanged;
 
+
 	}
 
 	public void Dispose()
 	{
 		CategoryService.OnChange -= StateHasChanged;
+	}
+
+	private void HandleLocationChanged(object sender, LocationChangedEventArgs e)
+	{
+		collapseMenuMobile = true;
+		InvokeAsync(StateHasChanged);
 	}
 
 }
