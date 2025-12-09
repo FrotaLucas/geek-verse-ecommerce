@@ -9,6 +9,10 @@ main {
 }
 
 .nav-menu {
+    position: sticky;
+    top: 3.5rem;
+    width: 100%;
+    z-index: 1;
     background-image: linear-gradient(180deg, rgb(44, 62, 88) 0%, rgb(52, 73, 94) 70%);
 }
 
