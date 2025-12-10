@@ -3,7 +3,6 @@ using GeekVerse.Server.Services.CartService;
 using GeekVerse.Server.Services.OrderService;
 using Stripe;
 using Stripe.Checkout;
-using Microsoft.Extensions.Configuration;
 
 namespace GeekVerse.Server.Services.PaymentService
 {
