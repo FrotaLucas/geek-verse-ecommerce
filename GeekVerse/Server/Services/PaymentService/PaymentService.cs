@@ -4,6 +4,7 @@ using GeekVerse.Server.Services.OrderService;
 using Microsoft.EntityFrameworkCore.SqlServer.Query.Internal;
 using Stripe;
 using Stripe.Checkout;
+using Microsoft.Extensions.Configuration;
 
 namespace GeekVerse.Server.Services.PaymentService
 {
@@ -13,10 +14,12 @@ namespace GeekVerse.Server.Services.PaymentService
         private readonly ICartService _cartService;
         private readonly IAuthService _authService;
 
-        string secret = "whsec_1895f159d619cbb590aef94de2e7c9bb1d5bf9a7ddd731bcb0dc5d63a6f4eef4";
-        public PaymentService(ICartService cartService, IAuthService authService, IOrderService orderService)
+        private readonly string _webHookSecret;
+        public PaymentService(ICartService cartService, IAuthService authService, IOrderService orderService, IConfiguration configuration)
         {
-            StripeConfiguration.ApiKey = "sk_test_51PfkfMHzpG9NkVZrBe9m6UDc44hNR0yjjF9IvHxwtVXPIItPHccny73NMcDrzEWVjgM9bb7Uimei8O6nwP74vXqq00gTnlyt6N";
+            _webHookSecret = configuration["Stripe:WebhookSecret"];
+
+            StripeConfiguration.ApiKey = configuration["Stripe:SecretKey"];
             _authService = authService;
             _cartService = cartService;
             _orderService = orderService;
@@ -82,7 +85,7 @@ namespace GeekVerse.Server.Services.PaymentService
                 var stripeEvent = EventUtility.ConstructEvent(
                         json,
                         request.Headers["Stripe-Signature"],
-                        secret
+                        _webHookSecret
                     );
 
                 if (stripeEvent.Type == Events.CheckoutSessionCompleted)
