@@ -1,7 +1,6 @@
 ﻿using GeekVerse.Server.Services.AuthService;
 using GeekVerse.Server.Services.CartService;
 using GeekVerse.Server.Services.OrderService;
-using Microsoft.EntityFrameworkCore.SqlServer.Query.Internal;
 using Stripe;
 using Stripe.Checkout;
 using Microsoft.Extensions.Configuration;
