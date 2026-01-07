@@ -68,7 +68,7 @@ namespace GeekVerse.Server.Services.PaymentService
         }
 
         //** WEBHOOOK teoria : webhook eh usado em sistemas de pagamento. Basicamento o provedor de servico de pagameno (PSP) faz um post no client side quando o pagamento 
-        //tiver sido validado/concluido. Isso eh melhor que o client side ficar fazendo varias requisicoes no PSP.
+        //tiver sido validado/concluido. Isso eh melhor que o client side ficar fazendo varias requisicoes no PSP. Eh tipo uma API invertida se parar pra pensar
 
         //deposi de clicar finaliza sua compra e clica em Pay, o stripe gera um evento chamado
         //CheckoutSessionCompleted. O ClI do stripe precisa esta logado e escutando esse evento para
